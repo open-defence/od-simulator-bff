@@ -5,8 +5,8 @@ import (
 	"log"
 	"net"
 
-	pb "./"
 	"google.golang.org/grpc"
+	pb "proto/config"
 )
 
 type server struct {

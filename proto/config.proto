@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package config;
+
+service ConfigService {
+  rpc GetConfig (ConfigRequest) returns (ConfigResponse);
+}
+
+message ConfigRequest {
+  string request_id = 1;
+}
+
+message ConfigResponse {
+  string config_json = 1;
+}

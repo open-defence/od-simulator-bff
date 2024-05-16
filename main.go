@@ -6,7 +6,7 @@ import (
 	"net"
 
 	"google.golang.org/grpc"
-	pb "proto/config"
+	pb "od-simulator-bff/generated"
 )
 
 type server struct {

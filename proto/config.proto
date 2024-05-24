@@ -2,12 +2,15 @@ syntax = "proto3";
 
 package config;
 
+option go_package = "od-simulator-bff/generated";
+
 service ConfigService {
   rpc GetConfig (ConfigRequest) returns (ConfigResponse);
 }
 
 message ConfigRequest {
-  string request_id = 1;
+  int32 x = 1;
+  int32 y = 2;
 }
 
 message ConfigResponse {

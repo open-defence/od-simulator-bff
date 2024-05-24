@@ -8,7 +8,7 @@
 // versions:
 // 	protoc-gen-grpc-web v1.5.0
 // 	protoc              v5.26.1
-// source: config.proto
+// source: proto/config.proto
 
 
 /* eslint-disable */

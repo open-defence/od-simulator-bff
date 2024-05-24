@@ -14,7 +14,11 @@ type server struct {
 }
 
 func (s *server) GetConfig(ctx context.Context, in *pb.ConfigRequest) (*pb.ConfigResponse, error) {
-	log.Printf("Received request: %v", in)
+	x := in.GetX()
+	y := in.GetY()
+
+	// Log the coordinates
+	log.Printf("Received request with x: %d, y: %d", x, y)
 
 	configJSON := `{
     "interceptors": [

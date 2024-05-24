@@ -1,4 +1,4 @@
-// source: config.proto
+// source: proto/config.proto
 /**
  * @fileoverview
  * @enhanceable
@@ -97,7 +97,8 @@ proto.config.ConfigRequest.prototype.toObject = function(opt_includeInstance) {
  */
 proto.config.ConfigRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    requestId: jspb.Message.getFieldWithDefault(msg, 1, "")
+    x: jspb.Message.getFieldWithDefault(msg, 1, 0),
+    y: jspb.Message.getFieldWithDefault(msg, 2, 0)
   };
 
   if (includeInstance) {
@@ -135,8 +136,12 @@ proto.config.ConfigRequest.deserializeBinaryFromReader = function(msg, reader) {
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setRequestId(value);
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setX(value);
+      break;
+    case 2:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setY(value);
       break;
     default:
       reader.skipField();
@@ -167,10 +172,17 @@ proto.config.ConfigRequest.prototype.serializeBinary = function() {
  */
 proto.config.ConfigRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = message.getRequestId();
-  if (f.length > 0) {
-    writer.writeString(
+  f = message.getX();
+  if (f !== 0) {
+    writer.writeInt32(
       1,
+      f
+    );
+  }
+  f = message.getY();
+  if (f !== 0) {
+    writer.writeInt32(
+      2,
       f
     );
   }
@@ -178,20 +190,38 @@ proto.config.ConfigRequest.serializeBinaryToWriter = function(message, writer) {
 
 
 /**
- * optional string request_id = 1;
- * @return {string}
+ * optional int32 x = 1;
+ * @return {number}
  */
-proto.config.ConfigRequest.prototype.getRequestId = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
+proto.config.ConfigRequest.prototype.getX = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
 };
 
 
 /**
- * @param {string} value
+ * @param {number} value
  * @return {!proto.config.ConfigRequest} returns this
  */
-proto.config.ConfigRequest.prototype.setRequestId = function(value) {
-  return jspb.Message.setProto3StringField(this, 1, value);
+proto.config.ConfigRequest.prototype.setX = function(value) {
+  return jspb.Message.setProto3IntField(this, 1, value);
+};
+
+
+/**
+ * optional int32 y = 2;
+ * @return {number}
+ */
+proto.config.ConfigRequest.prototype.getY = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
+};
+
+
+/**
+ * @param {number} value
+ * @return {!proto.config.ConfigRequest} returns this
+ */
+proto.config.ConfigRequest.prototype.setY = function(value) {
+  return jspb.Message.setProto3IntField(this, 2, value);
 };
 
 
